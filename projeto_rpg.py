@@ -5,7 +5,11 @@ for i in range(1,20):
     d20.append(i)
 print('Rolando dado...')
 rolagem = random.choice(d20)
-print('Sua rolagem deu: {}'.format(rolagem))
+if rolagem == 20:
+    print('CRÍTICO!')
+    print('Sua rolagem deu: {}'.format(rolagem))
+else:
+    print('Sua rolagem deu: {}'.format(rolagem))
 
 atributo_forca = 3
 atributo_destreza = {}
@@ -21,9 +25,14 @@ acerto = rolagem + pericia_luta
 print('Rolagem + Luta = {}'.format(acerto))
 
 espada_longa = []
-for i in range(1,6):
-    espada_longa.append(i)
-rolagem_dano = random.choice(espada_longa)
+if rolagem != 20:
+    for i in range(1,6):
+        espada_longa.append(i)
+    rolagem_dano = random.choice(espada_longa)
+elif rolagem == 20:
+    for i in range(1,6):
+        espada_longa.append(i)
+    rolagem_dano = random.choice(espada_longa) * 2
 
 definir_defesa = []
 for i in range (10,25):
